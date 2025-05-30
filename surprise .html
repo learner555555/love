@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一眼万年--爱你不止三千遍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 配置Tailwind自定义颜色和字体 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4AF37', // 金色主色调
+                        secondary: '#8B4513', // 褐色辅助色
+                        tertiary: '#F5F5DC', // 米色背景
+                        darkBrown: '#3A2718', // 深褐色文字
+                    },
+                    fontFamily: {
+                        song: ['"Noto Serif SC"', 'serif'], // 宋体风格字体
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .border-ancient {
+                border-style: double;
+                border-width: 4px;
+            }
+            .bg-paper {
+                background-image: url('https://picsum.photos/id/106/1200/800');
+                background-size: cover;
+                background-position: center;
+            }
+        }
+    </style>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-song bg-tertiary text-darkBrown">
+    <!-- 顶部导航栏 -->
+    <header class="relative">
+        <!-- 古风横幅背景 -->
+        <div class="h-40 md:h-64 bg-cover bg-center relative" style="background-image: url('https://wallpaperm.cmcm.com/0cc4a03346176d5fc1c2c78a9a20ad01.jpg');">
+            <div class="absolute inset-0 bg-darkBrown/50"></div>
+            <!-- 牌匾 -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center">
+                <h1 class="text-[clamp(2rem,5vw,4rem)] font-bold text-primary text-shadow">一眼万年</h1>
+                <p class="text-[clamp(1rem,2vw,1.5rem)] text-white text-shadow mt-2">爱你不止三千遍</p>
+            </div>
+        </div>
+        
+        <!-- 导航菜单 -->
+        <nav class="bg-secondary/90 text-white sticky top-0 z-50">
+            <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="hover:text-primary transition-colors duration-300 flex items-center">
+                        <i class="fa fa-home mr-2"></i>开始
+                    </a>
+                    <a href="#attractions" class="hover:text-primary transition-colors duration-300 flex items-center">
+                        <i class="fa fa-map-marker mr-2"></i>我们的经历
+                    </a>
+                    <a href="#guide" class="hover:text-primary transition-colors duration-300 flex items-center">
+                        <i class="fa fa-info-circle mr-2"></i>我们的生活
+                    </a>
+                    <a href="#booking" class="hover:text-primary transition-colors duration-300 flex items-center">
+                        <i class="fa fa-heart mr-2"></i>我们的倾诉
+                    </a>
+                    <a href="#contact" class="hover:text-primary transition-colors duration-300 flex items-center">
+                        <i class="fa fa-diamond mr-2"></i>我们的坚持
+                    </a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-white text-2xl" id="menu-toggle">
+                    <i class="fa fa-bars"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端菜单 -->
+            <div class="md:hidden hidden bg-secondary/95 absolute w-full" id="mobile-menu">
+                <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                    <a href="#" class="hover:text-primary transition-colors duration-300 py-2 border-b border-primary/20">
+                        <i class="fa fa-home mr-2"></i>开始
+                    </a>
+                    <a href="#attractions" class="hover:text-primary transition-colors duration-300 py-2 border-b border-primary/20">
+                        <i class="fa fa-map-marker mr-2"></i>我们的经历
+                    </a>
+                    <a href="#guide" class="hover:text-primary transition-colors duration-300 py-2 border-b border-primary/20">
+                        <i class="fa fa-info-circle mr-2"></i>我们的生活
+                    </a>
+                    <a href="#booking" class="hover:text-primary transition-colors duration-300 py-2 border-b border-primary/20">
+                        <i class="fa fa-heart mr-2"></i>我们的倾诉
+                    </a>
+                    <a href="#contact" class="hover:text-primary transition-colors duration-300 py-2">
+                        <i class="fa fa-diamond mr-2"></i>我们的坚持
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <section class="mb-16 pt-12">
+            <div class="text-center mb-8">
+                <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-secondary border-b-2 border-primary/50 pb-2 inline-block">开始的开始</h2>
+            </div>
+            
+            <div class="relative rounded-lg overflow-hidden shadow-xl border-4 border-secondary">
+                <div id="scenic-carousel" class="relative h-128 md:h-[600px] overflow-hidden">
+                    <div class="carousel-inner flex transition-transform duration-500 ease-in-out">
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <img src="https://img0.baidu.com/it/u=41759381,3765072424&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt="11111" class="w-full h-full object-cover">
+                        </div>
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <img src="https://img2.baidu.com/it/u=3668620057,1688766460&fm=253&fmt=auto&app=120&f=JPEG?w=800&h=500" alt="22222" class="w-full h-full object-cover">
+                        </div>
+                        <div class="carousel-item w-full flex-shrink-0">
+                            <img src="https://img0.baidu.com/it/u=4134777440,914741815&fm=253&fmt=auto&app=138&f=JPEG?w=889&h=500" alt="33333" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-prev absolute left-4 top-1/2 -translate-y-1/2 bg-darkBrown/50 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-darkBrown transition-colors">
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <button class="carousel-next absolute right-4 top-1/2 -translate-y-1/2 bg-darkBrown/50 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-darkBrown transition-colors">
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+                    
+                    <div class="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+                        <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="0"></button>
+                        <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="1"></button>
+                        <button class="carousel-indicator w-3 h-3 rounded-full bg-white/50 hover:bg-white transition-colors" data-index="2"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // 轮播图JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('#scenic-carousel');
+            const inner = carousel.querySelector('.carousel-inner');
+            const items = carousel.querySelectorAll('.carousel-item');
+            const prevBtn = carousel.querySelector('.carousel-prev');
+            const nextBtn = carousel.querySelector('.carousel-next');
+            const indicators = carousel.querySelectorAll('.carousel-indicator');
+            
+            let currentIndex = 0;
+            const totalItems = items.length;
+            
+            // 更新轮播位置
+            function updateCarousel() {
+                inner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // 更新指示器状态
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('bg-white', index === currentIndex);
+                    indicator.classList.toggle('bg-white/50', index !== currentIndex);
+                });
+            }
+            
+            // 下一张
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCarousel();
+            }
+            
+            // 上一张
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateCarousel();
+            }
+            
+            // 绑定事件
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            indicators.forEach(indicator => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = parseInt(indicator.dataset.index);
+                    updateCarousel();
+                });
+            });
+            
+            // 自动轮播
+            let interval = setInterval(nextSlide, 5000);
+            
+            // 鼠标悬停暂停
+            carousel.addEventListener('mouseenter', () => clearInterval(interval));
+            carousel.addEventListener('mouseleave', () => interval = setInterval(nextSlide, 5000));
+
+            // 移动端菜单切换
+            document.getElementById('menu-toggle').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobile-menu');
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
